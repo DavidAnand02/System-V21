@@ -1,0 +1,15 @@
+{
+  "name": "The System",
+  "short_name": "App Name",
+  "start_url": "./index.html",  // Adjust based on your main HTML file
+  "display": "standalone",
+  "background_color": "#ffffff", // Change to your preferred background color
+  "theme_color": "#ffffff",       // Change to your preferred theme color
+  "icons": [
+    {
+      "src": "icon.png",          // Path to your app icon
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
