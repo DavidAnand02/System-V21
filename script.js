@@ -1497,3 +1497,44 @@ document.getElementById('next-month').addEventListener('click', () => {
     currentDate.setMonth(currentDate.getMonth() + 1);
     generateCalendar();
 });
+
+
+
+
+
+// Register Service Worker for offline functionality
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then((registration) => {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch((error) => {
+                console.error('Service Worker registration failed:', error);
+            });
+    });
+
+    // Service Worker Code (directly in the JS file)
+    navigator.serviceWorker.addEventListener('install', (event) => {
+        event.waitUntil(
+            caches.open('your-cache-name').then((cache) => {
+                return cache.addAll([
+                    './',               // Cache your main page
+                    './index.html',     // Your main HTML file
+                    './styles.css',     // Your CSS file
+                    './script.js',      // Your JavaScript file
+                    './icon.png'        // Your app icon
+                ]);
+            })
+        );
+    });
+
+    navigator.serviceWorker.addEventListener('fetch', (event) => {
+        event.respondWith(
+            caches.match(event.request).then((response) => {
+                return response || fetch(event.request);
+            })
+        );
+    });
+}
+
