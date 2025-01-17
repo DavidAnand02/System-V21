@@ -1,15 +1,18 @@
 {
   "name": "The System",
-  "short_name": "App Name",
-  "start_url": "./index.html",  // Adjust based on your main HTML file
+  "short_name": "System",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#ffffff", // Change to your preferred background color
-  "theme_color": "#ffffff",       // Change to your preferred theme color
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "icon.png",          // Path to your app icon
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "https://raw.githubusercontent.com/DavidAnand02/System-V21/main/The%20System%20Icon.webp",
+      "sizes": "1024x1024",
+      "type": "image/webp"
     }
-  ]
+  ],
+  "orientation": "portrait",
+  "apple_mobile_web_app_capable": "yes",
+  "apple_mobile_web_app_status_bar_style": "black-translucent"
 }
